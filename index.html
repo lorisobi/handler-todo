@@ -16,7 +16,7 @@
     <footer><input type="text" id="TodoInput"><button id="TodoSubmit" onclick="Submit();">+</button></footer>
     <script>
 //init
-console.log("Version 20210421.16.07")
+console.log("Version 20210421.16.12")
 console.log(localStorage.tasks);
 
  if (localStorage["tasks"] !== "undefined" && localStorage["tasks"] !== "[]"){
@@ -24,7 +24,7 @@ console.log(localStorage.tasks);
 
     console.log(retrievedData)
     word = "";
-    var tasks = ["First", "Sec"];
+    var tasks = [];
     for (i in retrievedData){
         if (retrievedData[i]!= ","){
             word = word + retrievedData[i];
@@ -33,11 +33,12 @@ console.log(localStorage.tasks);
         }
         else{
             tasks.push(word);
+            word=""
         }
     
     }
-    tasks.splice(0);
-    tasks.splice(1);
+    tasks.push(word);
+   
 
  }
  else{
