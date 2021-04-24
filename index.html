@@ -1,0 +1,129 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <h1>Handler</h1>
+        <a href="#settings"><button>≡</button></a>
+    </header>
+   <center> <main>
+        <ul id="list">
+            
+        </ul>
+    </main></center>
+    <footer><input type="text" id="TodoInput"><button id="TodoSubmit" onclick="Submit();">+</button></footer>
+    <script>
+//init
+  
+console.log(localStorage.tasks);
+
+ if (localStorage["tasks"] !== "undefined" && localStorage["tasks"] !== "[]"){
+    var retrievedData = localStorage.tasks;
+    console.log(retrievedData)
+    word = "";
+    var tasks = [];
+    for (i in retrievedData){
+        if (i!= ","){
+            word = word + i;
+            
+        }
+        else{
+            tasks.push(word);
+        }
+    }
+ }
+ else{
+    var tasks = ["First Entry", "second Entry"];
+ }
+ console.log(tasks);
+ updateList();
+
+function updateList(){
+    localStorage.setItem("tasks", tasks);
+    i=0;
+    document.getElementById("list").innerHTML = "";
+    while (tasks.length > i){
+        if (tasks[i].length < 25){
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML + "<li><div ><button class='Check' onclick='toggleCheck("+this.ID+"); return false;'></button>"+tasks[i]+"</div><button class='delete'>🗑️</button></li>";
+    }
+    else{
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML + "<li><div ><button class='Check' onclick='toggleCheck("+this.ID+"); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>"+tasks[i]+"</marquee></div><button class='delete'>🗑️</button></li>";
+
+    }
+    
+    console.log(i+": "+tasks[i]);
+        i+=1
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+var input = document.getElementById("TodoInput");
+
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("TodoSubmit").click();
+  }
+}); 
+
+function Submit(){
+    var inputVal = document.getElementById("TodoInput").value;
+    inputValSpace = inputVal;
+    for (var i in inputVal){
+    inputValSpace = inputValSpace.replace(' ', '');}
+    if (inputValSpace != ""){
+        tasks.push(inputVal);
+        updateList();
+            
+        console.log(tasks);
+    window.scrollTo(0,document.getElementById("list").scrollHeight);
+}
+document.getElementById("TodoInput").value = "";
+
+}
+
+function toggleCheck(element){
+    
+    if (document.getElementById(element).innerHTML != "✓"){
+        element.innerHTML = "✓";
+    }
+    else{
+        element.innerHTML = "";
+    }
+    
+}
+
+    </script>
+
+    <div id="settings">
+        <h2>Settings</h2>
+        <form>
+            <label>🎨 Theme</label>
+            <select>
+                <option>
+                    System
+                </option>
+                <option>
+                    Hell
+                </option>
+                <option>
+                    Dunkel
+                </option>
+            </select>
+        </form>
+    </div>
+    <div id="darken" onclick="window.location.href = '#'">
+       
+    </div>
+</body>
+</html>
