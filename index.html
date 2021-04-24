@@ -53,12 +53,12 @@ function updateList(){
     document.getElementById("list").innerHTML = "";
     while (tasks.length > i){
         if (tasks[i].length < 25){
-        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML + "<li><div ><button class='Check' onclick='toggleCheck("+this.ID+"); return false;'></button>"+tasks[i]+"</div><button class='delete'>🗑️</button></li>";
-    }
-    else{
-        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML + "<li><div ><button class='Check' onclick='toggleCheck("+this.ID+"); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>"+tasks[i]+"</marquee></div><button class='delete'>🗑️</button></li>";
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML + "<li><div ><button class='Check' id="+i+" onclick='toggleCheck("+i+"); return false;'></button>"+tasks[i]+"</div><button class='delete'>🗑️</button></li>";
+        }
+        else{
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML + "<li><div ><button class='Check' id="+i+" onclick='toggleCheck("+i+"); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>"+tasks[i]+"</marquee></div><button class='delete'>🗑️</button></li>";
 
-    }
+        }
     
     console.log(i+": "+tasks[i]);
         i+=1
@@ -84,7 +84,8 @@ input.addEventListener("keyup", function(event) {
 }); 
 
 function Submit(){
-    var inputVal = document.getElementById("TodoInput").value;
+    InputForm =document.getElementById("TodoInput")
+    var inputVal = InputForm.value;
     inputValSpace = inputVal;
     for (var i in inputVal){
     inputValSpace = inputValSpace.replace(' ', '');}
@@ -95,23 +96,29 @@ function Submit(){
         console.log(tasks);
     window.scrollTo(0,document.getElementById("list").scrollHeight);
 }
-document.getElementById("TodoInput").value = "";
+InputForm.value = "";
+InputForm.focus;
+
 
 }
 
 function toggleCheck(element){
-    
-    if (document.getElementById(element).innerHTML != "✓"){
-        element.innerHTML = "✓";
+    console.log("ran", element)
+    if (document.getElementById(element).innerHTML !== "✅"){
+        document.getElementById(element).innerHTML = "✅";
     }
     else{
-        element.innerHTML = "";
+        document.getElementById(element).innerHTML = "";
     }
     
 }
 
-    </script>
 
+
+
+
+    </script>
+<div>
     <div id="settings">
         <h2>Settings</h2>
         <form>
@@ -128,6 +135,7 @@ function toggleCheck(element){
                 </option>
             </select>
         </form>
+        <button class="bigbutton">Export Data</button>
     </div>
     <div id="darken" onclick="window.location.href = '#'">
        

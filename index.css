@@ -1,9 +1,9 @@
 
 *{
     font-family: sans-serif;
-    -moz-transition: ease-out 0.3s all;
-    -webkit-transition: ease-out 0.3s all;
-    transition: ease-out 0.3s all;
+    -moz-transition: linear 0.3s all;
+    -webkit-transition: linear 0.3s all;
+    transition: linear 0.3s all;
 
 }
 h1{
@@ -52,6 +52,8 @@ button{
     background: #f1f1f1;
     font-size: 22px;
 }
+
+
 
 a{
     text-decoration: none;
@@ -118,21 +120,6 @@ button.delete{
 
 
 
-select{
-    width: 100%;
-    height: 45px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    margin-top: 15px ;
-    filter: drop-shadow(0 10px 0.25rem rgba(0, 0, 0, 0.068));
-    -moz-appearance: scrollbarbutton-down;
-    -webkit-appearance: scrollbarbutton-down;
-    appearance: scrollbarbutton-down;
-}
-select::-ms-expand {
-    display: none;
-  }
 
 
 
@@ -154,19 +141,30 @@ input:focus{
 #settings{
     z-index: 3;
     position: fixed;
-    bottom: 0;
+    bottom: -50%;
     left: 0;
     right: 0;
-    height: 0;
-    padding: 0;
+    opacity: 0;
+    height: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+
+
     background-color: #f8f8f8;
     border-radius: 10px 10px 0 0;
     
 }
 
 #settings:target{
-    height: 50%;
-    padding: 15px;
+    -webkit-transform: translateY(-90%);
+	transform: translateY(-90%);
+    -moz-transform: translateY(-90%);
+    will-change: transform;
+    opacity: 1;
+    -moz-transition: linear 0.1s all !important;
+    -webkit-transition: linear 0.1s all !important;
+    transition: linear 0.1s all !important;
     filter: drop-shadow(0 -10px 0.25rem rgba(0, 0, 0, 0.068))
 }
 
@@ -174,7 +172,7 @@ input:focus{
     width: 100%;
     height:100%;
     background-color: rgba(0, 0, 0, 0.418);
-
+    
     
     position: fixed;
     bottom: 0;
@@ -186,3 +184,56 @@ input:focus{
 
 
 
+.bigbutton{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px ;
+    background-position: center;
+  transition: background 0.8s;
+  font-size: 15px;
+  background-color: #ffffff;
+  filter: drop-shadow(0 10px 0.45rem rgba(0, 0, 0, 0.068));
+
+
+}
+.bigbutton:hover{
+    background: #ffffff radial-gradient(circle, transparent 1%, #dfdfdf 1%) center/15000%;
+}
+
+.bigbutton:active{
+    background-color: #dfdfdf;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+
+
+select{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    background-position: center;
+    transition: background 0.8s;
+    background-color: #ffffff;
+
+    outline: none;
+    border: none;
+    margin-top: 15px ;
+    filter: drop-shadow(0 10px 0.45rem rgba(0, 0, 0, 0.048));
+    
+}
+
+select:hover{
+    background: #ffffff radial-gradient(circle, transparent 1%, #eeeeee 1%) center/15000%;
+}
+
+select:active{
+    background-color: #ececec;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+
+select::-ms-expand {
+    display: none;
+  }
