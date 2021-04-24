@@ -21,18 +21,21 @@ console.log(localStorage.tasks);
 
  if (localStorage["tasks"] !== "undefined" && localStorage["tasks"] !== "[]"){
     var retrievedData = localStorage.tasks;
+
     console.log(retrievedData)
-    word = "";
+    var tasks = JSON.parse(retrievedData);
+    console.log(tasks)
+    /*word = "";
     var tasks = [];
     for (i in retrievedData){
         if (i!= ","){
             word = word + i;
-            
+            console.log(tasks);
         }
         else{
             tasks.push(word);
-        }
-    }
+        /
+    }*/
  }
  else{
     var tasks = ["First Entry", "second Entry"];
