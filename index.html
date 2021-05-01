@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
-
+<script src="/index.js"></script>
 </head>
 
 <body>
@@ -23,127 +23,144 @@
         </main>
     </center>
     <footer><input type="text" id="TodoInput"><button id="TodoSubmit" onclick="Submit();">+</button></footer>
-    <script>
-        //init
-        console.log("Version 20210421.16.12")
-        console.log(localStorage.tasks);
+   <script>
+         //init
+  
+  console.log("Version 20210430.16.25")
+  console.log(localStorage.tasks);
 
-        if (localStorage["tasks"] !== "undefined" && localStorage["tasks"] !== "[]") {
-            var retrievedData = localStorage.tasks;
+  if (localStorage["tasks"] !== "undefined" && localStorage["tasks"] !== "[]") {
+      var retrievedData = localStorage.tasks;
 
-            console.log(retrievedData)
-            word = "";
-            var tasks = [];
-            for (i in retrievedData) {
-                if (retrievedData[i] != "," || retrievedData[i - 1] == "⁂") {
-                    word = word + retrievedData[i];
-                    console.log(i, retrievedData[i]);
-                    console.log(tasks);
-                } else {
-                    tasks.push(word);
-                    word = ""
-                }
+      console.log(retrievedData)
+      word = "";
+      var tasks = [];
+      for (i in retrievedData) {
+          if (retrievedData[i] != "," || retrievedData[i - 1] == "⁂") {
+              word = word + retrievedData[i];
+              console.log(i, retrievedData[i]);
+              console.log(tasks);
+          } else {
+              tasks.push(word);
+              word = ""
+          }
 
-            }
-            tasks.push(word);
-
-
-        } else {
-            var tasks = ["First Entry", "second Entry"];
-        }
-        console.log(tasks);
-        updateList();
-
-        function updateList() {
-            if (tasks.length === 0){
-                document.getElementById("yourdone").innerHTML = "You're done.<br>Time to chill.";
-
-            }
-            else{
-
-                document.getElementById("yourdone").innerHTML = "";
-
-            }
-            document.getElementById("list").innerHTML = "";
-
-            localStorage.setItem("tasks", tasks);
-            i = 0;
-            while (tasks.length > i) {
-                if (tasks[i].length < 25) {
-                    document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
-                        "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
-                        "); return false;'></button>" + tasks[i] +
-                        "</div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
-                } else {
-                    document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
-                        "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
-                        "); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>" + tasks[i] +
-                        "</marquee></div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
-
-                }
-
-                console.log(i + ": " + tasks[i]);
-                i += 1
-            }
-          
-        }
-
-        function arrayRemove(arr, value) {
-
-            return arr.filter(function (ele) {
-                return ele != value;
-            });
-        }
-
-        function deleteElement(element) {
-            tasks.splice(element, 1);
-            updateList();
-        }
+      }
+      tasks.push(word);
 
 
+  } else {
+      var tasks = ["First Entry", "second Entry"];
+  }
+  console.log(tasks);
+  updateList();
 
+  function updateList() {
+      if (tasks.length === 0){
+          document.getElementById("yourdone").innerHTML = "You're done.<br>Time to chill.";
+
+      }
+      else{
+
+          document.getElementById("yourdone").innerHTML = "";
+
+      }
+      document.getElementById("list").innerHTML = "";
+
+      localStorage.setItem("tasks", tasks);
+      i = 0;
+      while (tasks.length > i) {
+          if (tasks[i].length < 25) {
+              document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
+                  "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
+                  "); return false;'></button>" + tasks[i] +
+                  "</div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
+          } else {
+              document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
+                  "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
+                  "); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>" + tasks[i] +
+                  "</marquee></div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
+
+          }
+
+          console.log(i + ": " + tasks[i]);
+          i += 1
+      }
+    
+  }
+
+  function arrayRemove(arr, value) {
+
+      return arr.filter(function (ele) {
+          return ele != value;
+      });
+  }
+
+  function deleteElement(element) {
+      tasks.splice(element, 1);
+      updateList();
+  }
 
 
 
-        var input = document.getElementById("TodoInput");
-
-        input.addEventListener("keyup", function (event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                document.getElementById("TodoSubmit").click();
-            }
-        });
-
-        function Submit() {
-            InputForm = document.getElementById("TodoInput")
-            var inputVal = InputForm.value;
-            inputValSpace = inputVal;
-            for (var i in inputVal) {
-                inputValSpace = inputValSpace.replace(' ', '');
-            }
-            if (inputValSpace != "") {
-                tasks.push(inputVal);
-                updateList();
-
-                console.log(tasks);
-                window.scrollTo(0, document.getElementById("list").scrollHeight);
-            }
-            InputForm.value = "";
-            InputForm.focus;
 
 
-        }
 
-        function toggleCheck(element) {
-            console.log("ran", element)
-            if (document.getElementById(element).innerHTML !== "✅") {
-                document.getElementById(element).innerHTML = "✅";
-            } else {
-                document.getElementById(element).innerHTML = "";
-            }
+  var input = document.getElementById("TodoInput");
 
-        }
-    </script>
+  input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("TodoSubmit").click();
+      }
+  });
+
+  function Submit() {
+      InputForm = document.getElementById("TodoInput")
+      var inputVal = InputForm.value;
+      inputValSpace = inputVal;
+      for (var i in inputVal) {
+          inputValSpace = inputValSpace.replace(' ', '');
+      }
+      if (inputValSpace != "") {
+          tasks.push(inputVal);
+          updateList();
+
+          console.log(tasks);
+          window.scrollTo(0, document.getElementById("list").scrollHeight);
+      }
+      InputForm.value = "";
+      InputForm.focus;
+
+
+  }
+
+  function toggleCheck(element) {
+      console.log("ran", element)
+      if (document.getElementById(element).style.background  !== "url(assets/checkmark.svg)") {
+          document.getElementById(element).style.background  = "url(assets/checkmark.svg)";
+      } else {
+          document.getElementById(element).style.background  = "none";
+      }
+
+  }
+
+  function getTimeAndDate(){
+      var today = new Date();
+
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+".hndlr";
+return date;
+  }
+
+
+  function download(text, name, type){
+var a = document.getElementById("exportbutton");
+var file = new Blob([text], {type: type});
+a.href = URL.createObjectURL(file);
+a.download = name;
+}
+
+   </script>
     <div>
         <div id="settings">
             <h2>Settings</h2>
@@ -162,7 +179,7 @@
                 </select>
             </form>
             <label>💾 Data</label>
-            <button class="bigbutton">Export Data</button>
+            <a href=""  id="exportbutton" ><button onclick="download(tasks, getTimeAndDate(), 'text/plain')" class="bigbutton" >Export Data</button></a>
             <button class="bigbutton">Import Data</button>
 
         </div>
