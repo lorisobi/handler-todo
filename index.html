@@ -38,7 +38,7 @@
             <h2>Settings</h2>
             <form>
                 <label>🎨 Theme</label>
-                <select>
+                <select disabled>
                     <option>
                         System
                     </option>
@@ -51,9 +51,9 @@
                 </select>
             </form>
             <label>💾 Data</label>
-            <a href=""  id="exportbutton" ><button onclick="download(tasks, getTimeAndDate(), 'text/plain')" class="bigbutton" >Export Data</button></a>
-            <button class="bigbutton">Import Data</button>
-            <button class="bigbutton" style="background-color: rgba(150, 110, 110, 0.445);" onclick="deleteData(this);">Delete all Data</button>
+            <a href=""  id="exportbutton" ><button onclick="download(JSON.stringify(tasks), getTimeAndDate(), 'text/plain')" class="bigbutton" >Export Data</button></a>
+            <button disabled class="bigbutton">Import Data</button>
+            <button class="bigbutton" style="background-color: rgba(150, 110, 110, 0.445); margin-bottom: 50px;" onclick="deleteData(this);">Delete all Data</button>
 
         </div>
         <div id="darken" onclick="window.location.href = '#'">

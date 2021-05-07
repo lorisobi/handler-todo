@@ -1,5 +1,7 @@
          //init
 
+        
+
          console.log("Version 20210506.18.22")
          console.log(localStorage.tasks);
 
@@ -27,7 +29,7 @@
              while (i < retrievedData.length) {
                  tasks.push({
                      "task": retrievedData[i]["task"],
-                     "checked": false
+                     "checked": retrievedData[i]["checked"]
                  });
                  console.log("retr", retrievedData[i]["task"]);
                  i += 1
@@ -56,15 +58,27 @@
              localStorage.setItem("tasks", JSON.stringify(tasks));
              console.log("tasks", JSON.parse(localStorage["tasks"]));
              i = 0;
+
+
              while (tasks.length > i) {
+
+                 if (tasks[i]["checked"] === true) {
+                    checkedstring = "style='background-image: url(assets/checkmark.svg) !important'";
+
+                 }else{
+
+                                     checkedstring = "style='background-image: none !important'";
+
+                 }
+
                  if (tasks[i]["task"].length < 25) {
                      document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
-                         "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
+                         "<li><div ><button class='Check'" + checkedstring + " id=" + i + " onclick='toggleCheck(" + i +
                          "); return false;'></button>" + tasks[i]["task"] +
                          "</div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
                  } else {
                      document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
-                         "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
+                         "<li><div ><button class='Check'" + checkedstring + " id=" + i + " onclick='toggleCheck(" + i +
                          "); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>" + tasks[i]["task"] +
                          "</marquee></div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
 
@@ -118,11 +132,13 @@
          function toggleCheck(element) {
              console.log("ran", element)
              if (tasks[element]["checked"] === false) {
-                 document.getElementById(element).style.background = "url(assets/checkmark.svg)";
+                 //document.getElementById(element).style.background = "url(assets/checkmark.svg)";
+                 tasks[element]["checked"]= true;
              } else {
-                 document.getElementById(element).style.background = "none";
+                 //document.getElementById(element).style.background = "none";
+                 tasks[element]["checked"]= false;
              }
-
+             updateList();
          }
 
          function getTimeAndDate() {
@@ -145,10 +161,10 @@
          function deleteData(element) {
              tasks = [];
              updateList();
-             if (element !== undefined){
+             if (element !== undefined) {
                  get = element.innerHTML;
                  element.innerHTML = "Done"
                  setTimeout('', 2000);
-                 element.innerHTML= get;
+                 element.innerHTML = get;
              }
          }

@@ -234,6 +234,14 @@ input:focus{
     
 }
 
+
+@media (min-aspect-ratio: 5/5) and (min-width: 750px){
+    #settings{
+        left: 25%;
+        right: 25%;
+    }
+}
+
 #settings:target{
     -webkit-transform: translateY(-90%);
 	transform: translateY(-90%);
@@ -284,7 +292,10 @@ label{
 }
 
 
-
+*:disabled{
+    pointer-events: none;
+    opacity: 0.4;
+}
 
 select{
     width: 100%;
