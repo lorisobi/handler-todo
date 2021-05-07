@@ -142,7 +142,13 @@
              a.download = name;
          }
 
-         function deleteData() {
+         function deleteData(element) {
              tasks = [];
              updateList();
+             if (element !== undefined){
+                 get = element.innerHTML;
+                 element.innerHTML = "Done"
+                 setTimeout('', 2000);
+                 element.innerHTML= get;
+             }
          }

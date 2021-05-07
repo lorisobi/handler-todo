@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
-<script src="index.js"></script>
+<script src="index.js" defer ></script>
 </head>
 
 <body>
@@ -53,7 +53,7 @@
             <label>💾 Data</label>
             <a href=""  id="exportbutton" ><button onclick="download(tasks, getTimeAndDate(), 'text/plain')" class="bigbutton" >Export Data</button></a>
             <button class="bigbutton">Import Data</button>
-            <button class="bigbutton" style="background-color: rgba(150, 110, 110, 0.445);" onclick="deleteData();">Delete all Data</button>
+            <button class="bigbutton" style="background-color: rgba(150, 110, 110, 0.445);" onclick="deleteData(this);">Delete all Data</button>
 
         </div>
         <div id="darken" onclick="window.location.href = '#'">
