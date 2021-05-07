@@ -1,10 +1,13 @@
 {
-    "name": "Handler - Todo-List",
-    "short_name": "Handler",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color" : "#8A2BE2" ,
-    "description": "Another todo app perfectly fitting for my own needs.",
+  "name": "Handler - Todo App",
+  "short_name": "Handler",
+  "description": "Handler is just another simple todo app fitting to my own needs.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "en",
+  "background_color": "#8a2be2",
+
     "icons": [{
       "src": "images/touch/homescreen48.png",
       "sizes": "48x48",

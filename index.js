@@ -1,6 +1,5 @@
          //init
 
-        
 
          console.log("Version 20210506.18.22")
          console.log(localStorage.tasks);

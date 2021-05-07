@@ -59,6 +59,11 @@
         <div id="darken" onclick="window.location.href = '#'">
 
         </div>
+      <script>
+          if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+      </script>
 </body>
 
 </html>
