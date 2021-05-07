@@ -26,33 +26,47 @@
    <script>
          //init
   
-  console.log("Version 20210430.16.25")
+  console.log("Version 20210506.18.22")
   console.log(localStorage.tasks);
+  var input = document.getElementById("TodoInput");
 
-  if (localStorage["tasks"] !== "undefined" && localStorage["tasks"] !== "[]") {
-      var retrievedData = localStorage.tasks;
+  input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("TodoSubmit").click();
+      }
+  });
+  var retrievedData = JSON.parse(localStorage.tasks);
+
+  if (retrievedData["tasks"] !== "undefined" && retrievedData["tasks"] !== "[]") {
 
       console.log(retrievedData)
       word = "";
       var tasks = [];
-      for (i in retrievedData) {
-          if (retrievedData[i] != "," || retrievedData[i - 1] == "⁂") {
-              word = word + retrievedData[i];
+      /*for (i in retrievedData) {
+          if (retrievedData[i]["task"] != "," || retrievedData[i - 1]["task"] == "⁂") {
+              word = word + retrievedData[i]["task"];
+              checked = retrievedData[i]["checked"];
               console.log(i, retrievedData[i]);
               console.log(tasks);
           } else {
-              tasks.push(word);
+            addedWord   = {"task": word, "checked": checked};
+              tasks.push(addedWord);
               word = ""
           }
 
-      }
-      tasks.push(word);
-
+      }*/
+      i=0;
+      while (i < retrievedData.length){
+      tasks.push({"task": retrievedData[i]["task"], "checked": false});
+      console.log("retr", retrievedData[i]["task"]);
+      i+=1
+    }
 
   } else {
-      var tasks = ["First Entry", "second Entry"];
+      var tasks = [{"task": "First Entry", "checked": false}];
   }
-  console.log(tasks);
+  console.log("before update", tasks);
   updateList();
 
   function updateList() {
@@ -67,18 +81,19 @@
       }
       document.getElementById("list").innerHTML = "";
 
-      localStorage.setItem("tasks", tasks);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      console.log("tasks",  JSON.parse(localStorage["tasks"]));
       i = 0;
       while (tasks.length > i) {
-          if (tasks[i].length < 25) {
+          if (tasks[i]["task"].length < 25) {
               document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
                   "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
-                  "); return false;'></button>" + tasks[i] +
+                  "); return false;'></button>" + tasks[i]["task"] +
                   "</div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
           } else {
               document.getElementById("list").innerHTML = document.getElementById("list").innerHTML +
                   "<li><div ><button class='Check' id=" + i + " onclick='toggleCheck(" + i +
-                  "); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>" + tasks[i] +
+                  "); return false;'></button><marquee scrollamount='3' truespeed scrolldelay='20'>" + tasks[i]["task"] +
                   "</marquee></div><button class='delete' onclick='deleteElement(" + i + ");'>🗑️</button></li>";
 
           }
@@ -106,14 +121,7 @@
 
 
 
-  var input = document.getElementById("TodoInput");
 
-  input.addEventListener("keyup", function (event) {
-      if (event.keyCode === 13) {
-          event.preventDefault();
-          document.getElementById("TodoSubmit").click();
-      }
-  });
 
   function Submit() {
       InputForm = document.getElementById("TodoInput")
@@ -123,7 +131,10 @@
           inputValSpace = inputValSpace.replace(' ', '');
       }
       if (inputValSpace != "") {
-          tasks.push(inputVal);
+          testtasks = {};
+          addedVal   = {"task": inputVal, "checked": false};
+          console.log(addedVal);
+          tasks.push(addedVal);
           updateList();
 
           console.log(tasks);
@@ -137,7 +148,7 @@
 
   function toggleCheck(element) {
       console.log("ran", element)
-      if (document.getElementById(element).style.background  !== "url(assets/checkmark.svg)") {
+      if (tasks[element]["checked"] === false) {
           document.getElementById(element).style.background  = "url(assets/checkmark.svg)";
       } else {
           document.getElementById(element).style.background  = "none";

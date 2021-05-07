@@ -187,8 +187,8 @@ button.check{
 }
 
 button.delete{
-    height: 45px;
-    width: 45px;
+    height: 45px !important;
+    width: 45px !important;
     font-size: 15px;
     background-color: transparent;
     margin-right:1%;
@@ -226,8 +226,9 @@ input:focus{
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
-
-
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+    overflow: scroll;
     background-color: var(--background-hard);
     border-radius: 10px 10px 0 0;
     
