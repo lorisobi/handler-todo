@@ -6,7 +6,7 @@
 
          var retrievedData = JSON.parse(localStorage.tasks);
 
-         if (retrievedData["tasks"] !== "undefined" && retrievedData["tasks"] !== "[]") {
+         if (retrievedData["tasks"] !== "undefined" || retrievedData["tasks"] !== "[]") {
 
              console.log(retrievedData)
              word = "";
