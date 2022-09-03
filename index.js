@@ -3,9 +3,10 @@
 
          console.log("Version 20210506.18.22")
          console.log(localStorage.tasks);
-         if (localStorage == undefined){
+         if (localStorage.length == 0){
             word = "";
              var tasks = [];
+
              updateList();
          }
 
