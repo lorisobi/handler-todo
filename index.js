@@ -6,7 +6,7 @@
          if (localStorage == undefined){
             word = "";
              var tasks = [];
-             function updateList()
+             function updateList();
          }
 
          var retrievedData = JSON.parse(localStorage.tasks);
