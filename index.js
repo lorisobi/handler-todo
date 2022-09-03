@@ -3,25 +3,18 @@
 
          console.log("Version 20210506.18.22")
          console.log(localStorage.tasks);
-         if (localStorage.tasks !== "undefined"){
-         var retrievedData = JSON.parse(localStorage.tasks);}
-         else{
+         if (localStorage == undefined){
             word = "";
              var tasks = [];
-             i = 0;
-             while (i < retrievedData.length) {
-                 tasks.push({
-                     "task": retrievedData[i]["task"],
-                     "checked": retrievedData[i]["checked"]
-                 });
-                 console.log("retr", retrievedData[i]["task"]);
-                 i += 1
+             function updateList()
          }
 
-         if (retrievedData["tasks"] !== "undefined" || retrievedData["tasks"] !== "[]") {
+         var retrievedData = JSON.parse(localStorage.tasks);
 
-             console.log(retrievedData)
-             
+         if (retrievedData["tasks"] !== "undefined" && retrievedData["tasks"] !== "[]") {
+
+             word = "";
+             var tasks = [];
              /*for (i in retrievedData) {
                  if (retrievedData[i]["task"] != "," || retrievedData[i - 1]["task"] == "⁂") {
                      word = word + retrievedData[i]["task"];
@@ -35,7 +28,14 @@
                  }
        
              }*/
-          
+             i = 0;
+             while (i < retrievedData.length) {
+                 tasks.push({
+                     "task": retrievedData[i]["task"],
+                     "checked": retrievedData[i]["checked"]
+                 });
+                 console.log("retr", retrievedData[i]["task"]);
+                 i += 1
              }
 
          } else {
