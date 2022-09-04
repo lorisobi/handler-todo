@@ -60,7 +60,12 @@
 
         </div>
       <script>
-      
+      if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service.js").then(() => {
+    console.log("[ServiceWorker**] - Registered");
+  });
+}
+
       </script>
 </body>
 
