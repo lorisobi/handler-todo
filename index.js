@@ -3,6 +3,11 @@
 
          console.log("Version 20210506.18.22")
          console.log(localStorage.tasks);
+
+         if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+          }
+
          if (localStorage.length == 0){
             word = "";
              var tasks = [];
