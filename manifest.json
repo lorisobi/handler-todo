@@ -2,7 +2,7 @@
   "name": "Handler - Todo App",
   "short_name": "Handler",
   "description": "Handler is just another simple todo app fitting to my own needs.",
-  "start_url": "/",
+  "start_url": "",
   "display": "standalone",
   "orientation": "portrait",
   "lang": "en",
