@@ -7,10 +7,11 @@
   "orientation": "portrait",
   "lang": "en",
   "background_color": "#8a2be2",
+  "theme_color": "#8a2be2",
 
     "icons": [{
       "src": "images/maskable_icon.png",
-      "sizes": "196x196",
+      "sizes": "3000x3000",
       "type": "image/png",
       "purpose": "maskable" 
     },{
