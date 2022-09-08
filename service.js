@@ -1,5 +1,5 @@
 // Service Worker
-const cacheName = "Handler-Todo";
+const cacheName = "Handler";
 const filesToCache = [
   "/",
   "index.html",
