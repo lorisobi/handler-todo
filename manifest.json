@@ -9,6 +9,11 @@
   "background_color": "#8a2be2",
 
     "icons": [{
+      "src": "images/maskable_icon.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable" 
+    },{
       "src": "images/touch/homescreen48.png",
       "sizes": "48x48",
       "type": "image/png"
