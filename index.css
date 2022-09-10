@@ -19,6 +19,11 @@
     src: url(fonts/Roboto-Black.ttf);
 }
 
+@font-face {
+    font-family: "Roboto Flex";
+    src: url(fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf);
+}
+
 :root{
     --foreground-hard: rgb(27, 27, 27);
     --gray: #d8d8d8;
@@ -56,10 +61,10 @@ body{
 
 
 h1{
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
     color: var(--foreground-hard);
     font-weight: 900;
-
+    font-stretch: 25%;
 }
 
 
