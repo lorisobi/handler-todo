@@ -192,7 +192,6 @@ li{
    /* border-bottom: 1px var(--gray) solid;*/
     background: var(--background-soft);
     border-radius: 5px;
-    padding-left: 5px !important;
     color: var(--foreground-hard);
 
 }
@@ -201,7 +200,7 @@ li div{
     align-items: center;
     justify-content: left;
     text-align: left;
-    margin-left: 5px;
+    margin-left: 10px;
     -webkit-user-select: text;  
 -moz-user-select: text;     
 -ms-user-select: text;      
