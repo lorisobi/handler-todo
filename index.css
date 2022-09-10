@@ -172,6 +172,7 @@ border: var(--background-soft) 2px solid;
 -ms-user-select: text;      
 -o-user-select: text;
 user-select: text;
+color: var(--foreground-hard);
 }
 
 ul{
