@@ -143,7 +143,7 @@
                  //document.getElementById(element).style.background = "url(assets/checkmark.svg)";
                  tasks[element]["checked"]= true;
              } else {
-                 //document.getElementById(element).style.background = "none";
+                 //document.getElementById(element).style.background = "var(--background-hard)";
                  tasks[element]["checked"]= false;
              }
              updateList();
