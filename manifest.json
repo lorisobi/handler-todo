@@ -3,6 +3,7 @@
   "short_name": "Handler",
   "description": "Handler is just another simple todo app fitting to my own needs.",
   "start_url": "index.html",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "lang": "en",
