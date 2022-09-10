@@ -38,7 +38,7 @@
 
     :root{
         --foreground-hard: rgb(247, 247, 247) !important;
-        --gray: #d8d8d8 !important;
+        --gray: #777777 !important;
         --background-soft: rgb(52, 52, 52) !important;
         --background-hard: rgb(29, 29, 29) !important;
         --background-gradient: linear-gradient(0deg, rgb(24, 24, 24), rgba(14, 14, 14, 0.74), rgba(0, 0, 0, 0));
@@ -54,6 +54,11 @@
     -moz-transition: linear 0.3s all;
     -webkit-transition: linear 0.3s all;
     transition: linear 0.3s all;
+    -webkit-user-select: none;  
+-moz-user-select: none;     
+-ms-user-select: none;      
+-o-user-select: none;
+user-select: none;
 
 }
 
@@ -162,6 +167,11 @@ input{
     outline: none;
     background: var(--background-hard);
 border: var(--background-soft) 2px solid;
+-webkit-user-select: text;  
+-moz-user-select: text;     
+-ms-user-select: text;      
+-o-user-select: text;
+user-select: text;
 }
 
 ul{
@@ -183,6 +193,7 @@ li{
     border-radius: 5px;
     padding-left: 5px !important;
     color: var(--foreground-hard);
+
 }
 li div{
     display: flex;
@@ -190,6 +201,11 @@ li div{
     justify-content: left;
     text-align: left;
     margin-left: 5px;
+    -webkit-user-select: text;  
+-moz-user-select: text;     
+-ms-user-select: text;      
+-o-user-select: text;
+user-select: text;
 }
 
 
