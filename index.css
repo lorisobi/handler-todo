@@ -47,7 +47,7 @@
 
 
 *{
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
     font-weight: 300;
     -moz-transition: linear 0.3s all;
     -webkit-transition: linear 0.3s all;
@@ -70,21 +70,22 @@ h1{
 
 
 h2{
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
     color: var(--foreground-hard);
     font-weight: 700;
+    font-stretch: 25%;
 
 }
 
 option{
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
 
     font-weight: 700;
 
 }
 
 h4{
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
     font-weight: 900;
     color: var(--gray);
     font-size: 3rem;
@@ -277,7 +278,8 @@ background: var(--background-soft);
 label{
     padding-top: 25px;
     padding-bottom: 25px;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
+    font-stretch: 25%;
     color: var(--foreground-hard);
     font-weight: 300;
 }
@@ -289,7 +291,9 @@ label{
     border-radius: 5px ;
     text-align: left;
     font-size: 15px;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
+    font-stretch: 25%;
+
     font-weight: 700;
     background-color: var(--background-soft);
     border: none;
@@ -309,9 +313,11 @@ select{
     border-radius: 5px;
     border: none;
     background: var(--background-soft);
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto Flex", sans-serif;
     color: var(--foreground-hard);
     font-weight: 700;
+    font-stretch: 25%;
+
     outline: none;
     margin-top: 15px ;
     
