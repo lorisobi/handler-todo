@@ -107,7 +107,7 @@ header{
 }
 
 main{
-    width: 100%;
+    max-width: 100%;
 }
 
 footer{
@@ -166,7 +166,9 @@ border: var(--background-soft) 2px solid;
 
 ul{
     list-style: none;
-    padding: 0 !important;
+    padding: 0 1vw 0 1vw;
+    background: var(--background-soft);
+    
     
 }
 
