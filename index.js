@@ -54,7 +54,7 @@
 
          function updateList() {
              if (tasks.length === 0) {
-                 document.getElementById("yourdone").innerHTML = "You're done.<br>Time to chill.";
+                 document.getElementById("yourdone").innerHTML = "You're done.<br>Time to relax.";
 
              } else {
 
